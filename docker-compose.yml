@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+
+    environment:
+      POSTGRES_DB: sales
+      POSTGRES_USER: aiq_admin
+      POSTGRES_PASSWORD: passw0rd
+
+    ports:
+      - "5432:5432"
+
+
